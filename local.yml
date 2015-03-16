@@ -1,0 +1,6 @@
+---
+- name: Fresh system configuration
+  tasks:
+    - name: Ansible user
+      user: name=ansible comment="Ansible User"
+
