@@ -6,7 +6,8 @@
       user: name=ansible comment="Ansible User" shell=/bin/bash
 
     - name: Set up authorized_keys for the ansible user
-      authorized_key: user=ansible key={{ item }}
+      authorized_key: user=ansible
+                      key="{{ item }}"
       with_file:
         - public_keys/test1.pub
 
