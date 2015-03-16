@@ -16,3 +16,11 @@
       with_items:
         - openssh-server
         - sudo
+
+    - name: Configure sudo
+      lineinfile:
+        dest: /etc/sudoers
+        line: "ansible ALL=(ALL:ALL) NOPASSWD: ALL"
+        state: present
+        validate: "/usr/sbin/visudo -cf %s"
+
