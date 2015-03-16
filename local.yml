@@ -1,5 +1,6 @@
 ---
 - name: Fresh system configuration
+  hosts: localhost
   tasks:
     - name: Ansible user
       user: name=ansible comment="Ansible User"
