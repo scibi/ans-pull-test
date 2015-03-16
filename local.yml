@@ -5,3 +5,8 @@
     - name: Ansible user
       user: name=ansible comment="Ansible User"
 
+    # Using with_file
+    - name: Set up authorized_keys for the deploy user
+      authorized_key: user=deploy key="{{ item }}"
+      with_file:
+        - public_keys/test1.pub
