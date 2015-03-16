@@ -7,6 +7,6 @@
 
     # Using with_file
     - name: Set up authorized_keys for the deploy user
-      authorized_key: user=deploy key="{{ item }}"
+      authorized_key: user=ansible key="{{ item }}"
       with_file:
         - public_keys/test1.pub
