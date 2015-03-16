@@ -6,9 +6,12 @@
       user: name=ansible comment="Ansible User" shell=/bin/bash
 
     - name: Set up authorized_keys for the ansible user
-      authorized_key: user=ansible key="{{ item }}"
+      authorized_key: user=ansible key={{ item }}
       with_file:
         - public_keys/test1.pub
 
-    - name: Install ssh
-      apt: name=openssh-server state=present
+    - name: Install packages
+      apt: name={{ item }} state=present
+      with_items:
+        - openssh-server
+        - sudo
